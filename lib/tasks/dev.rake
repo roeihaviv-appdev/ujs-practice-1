@@ -1,6 +1,6 @@
 namespace :dev do
   desc "Hydrate database with fake sample data"
-  task sample_data: :environment do
+  task prime: :environment do
     user = User.find_or_create_by(email: "alice@example.com") do |user|
       user.password = "password"
     end
@@ -10,7 +10,7 @@ namespace :dev do
     Task.statuses.values.each do |status|
       rand(3..10).times do
         user.tasks.create(
-          content: Faker::Hacker.say_something_smart,
+          body: Faker::Hacker.say_something_smart,
           status: status
         )
       end

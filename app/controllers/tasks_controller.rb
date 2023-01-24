@@ -77,7 +77,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
-      format.json { head :no_content }
+      format.json { head :no_body }
       format.js
     end
   end
@@ -90,6 +90,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:content, :status)
+      params.require(:task).permit(:body, :status)
     end
 end

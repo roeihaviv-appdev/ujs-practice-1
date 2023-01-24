@@ -12,7 +12,7 @@
 class Task < ApplicationRecord
   belongs_to :user
 
-  validates :content, presence: true
+  validates :body, presence: true
 
   enum status: {
     not_yet_started: "not_yet_started",
