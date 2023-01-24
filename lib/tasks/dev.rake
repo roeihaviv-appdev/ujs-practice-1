@@ -1,6 +1,6 @@
 namespace :dev do
   desc "Hydrate database with fake sample data"
-  task prime: :environment do
+  task sample_data: :environment do
     user = User.find_or_create_by(email: "alice@example.com") do |user|
       user.password = "password"
     end
